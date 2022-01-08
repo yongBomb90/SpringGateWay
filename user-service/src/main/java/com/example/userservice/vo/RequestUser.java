@@ -1,2 +1,9 @@
-package com.example.userservice.vo;public class RequestUser {
+package com.example.userservice.vo;
+
+
+import lombok.Data;
+
+@Data
+public class RequestUser {
+
 }
