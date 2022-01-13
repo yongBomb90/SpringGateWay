@@ -4,6 +4,7 @@ import com.example.userservice.dto.UserDTO;
 import com.example.userservice.jpa.UserEntity;
 import com.example.userservice.jpa.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
@@ -75,6 +76,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public Iterable<UserEntity> getUserByAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserDTO getUserDetailsByEmail(String userName) {
+        UserEntity userEntity = userRepository.findByEmail(userName);
+        UserDTO userDTO = new ModelMapper().map(userEntity,UserDTO.class);
+        if ( userEntity == null ) {
+            throw new UsernameNotFoundException(userName);
+        }
+        return userDTO;
     }
 
 
