@@ -1,5 +1,5 @@
 token:
   expiration_time: 864000000
-  secret: user_tokenthtis
+  secret: '{cipher}AQAVXR7DryWFjDDEgXxZL3s1DObqkZZNgmr/xVLvLpykJ3+LIHSu6k8G32PSJ9dpjzIn+YMKLl6rXy/NJWAbYJ0hbTnpO0WDQ+sgkIeH2g6YNEQQ/mKh9Zyjha2Z9zo6BaUQZQ/eJDXpK1xGtkELhExdE7UcobzMjGJ5BCX1wTo592fbgR5IOxzyO4m0Ov11H5hiZ0Enu3TSYanMFbSK3BRiPDV8znhyO8+J4t5amRrHm5ej+9nFN5+yXq7tkZrITIE+u5inbscd64V5YOkx5SGhV4dxx0PMlfhEhiP/LJGcKiPW0q51GcqkO5Q3GaftKfmJ+z+qMlQ5KVFuyjwmbIgcTlWDT7PvvbgbuslQUpkM2/wIRY+VOfoCr/Kr04XjzN8='
 gateway:
   ip: 127.0.0.1

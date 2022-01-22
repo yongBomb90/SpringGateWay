@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+token:
+  expiration_time: 864000000
+  secret: '{cipher}AQAVXR7DryWFjDDEgXxZL3s1DObqkZZNgmr/xVLvLpykJ3+LIHSu6k8G32PSJ9dpjzIn+YMKLl6rXy/NJWAbYJ0hbTnpO0WDQ+sgkIeH2g6YNEQQ/mKh9Zyjha2Z9zo6BaUQZQ/eJDXpK1xGtkELhExdE7UcobzMjGJ5BCX1wTo592fbgR5IOxzyO4m0Ov11H5hiZ0Enu3TSYanMFbSK3BRiPDV8znhyO8+J4t5amRrHm5ej+9nFN5+yXq7tkZrITIE+u5inbscd64V5YOkx5SGhV4dxx0PMlfhEhiP/LJGcKiPW0q51GcqkO5Q3GaftKfmJ+z+qMlQ5KVFuyjwmbIgcTlWDT7PvvbgbuslQUpkM2/wIRY+VOfoCr/Kr04XjzN8='
+gateway:
+  ip: 127.0.0.1
+bomb:
+  secret: '{cipher}AQBDkuAwgLpBBzBKfSzPUt5/lwe0vHxkmUC9qPPYr6LjX0m5LWI8vu5+Hqo46TZivRyFX1zyXKuyOLM6jYAmyJd+kfp71re5+fszcG8URim3vZY2rVFDxZZXQ2oIQz+TtiiwvUy5mbNU7vISvfQNujPeLZHhwlwacBpOq1z5QaFEYMlgF5neBOW6i7Kfk8NR9z5T1yge1CZ+mZkVtCz/wsAC3FeTTMhOYSGbr7EveZ39RGLaZF4/q27LeZpMsv4V63c19t5CcyeI474pbM3NRp28PEAdIPIetdLKMg9/1ZMTw/HQDLGHmKF7g40L8SRhsi6I1SJZpkO90JKyyOyuOcultIiL/k/d99dKx6VI0TgEP4LcX3867ftOP9DggXEo+q4='
