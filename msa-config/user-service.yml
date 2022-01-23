@@ -9,3 +9,5 @@ gateway:
   ip: 127.0.0.1
 bomb:
   secret: '{cipher}AQBDkuAwgLpBBzBKfSzPUt5/lwe0vHxkmUC9qPPYr6LjX0m5LWI8vu5+Hqo46TZivRyFX1zyXKuyOLM6jYAmyJd+kfp71re5+fszcG8URim3vZY2rVFDxZZXQ2oIQz+TtiiwvUy5mbNU7vISvfQNujPeLZHhwlwacBpOq1z5QaFEYMlgF5neBOW6i7Kfk8NR9z5T1yge1CZ+mZkVtCz/wsAC3FeTTMhOYSGbr7EveZ39RGLaZF4/q27LeZpMsv4V63c19t5CcyeI474pbM3NRp28PEAdIPIetdLKMg9/1ZMTw/HQDLGHmKF7g40L8SRhsi6I1SJZpkO90JKyyOyuOcultIiL/k/d99dKx6VI0TgEP4LcX3867ftOP9DggXEo+q4='
+order_service:
+  url: http://ORDER-SERVICE/order-service/%s/orders
