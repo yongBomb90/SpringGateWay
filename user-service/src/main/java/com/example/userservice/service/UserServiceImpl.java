@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService{
 
 //        List<ResponseOrder> orders = new ArrayList<>();
         String orderUrl = String.format(environment.getProperty("order_service.url"),userId) ;
-
+        //렛스트템플릿사용
         ResponseEntity<List<ResponseOrder>> orderListResponse =
         restTemplate.exchange(
                 orderUrl
