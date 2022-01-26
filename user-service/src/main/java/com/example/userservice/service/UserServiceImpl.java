@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService{
         UserDTO userDTO = new ModelMapper().map(userEntity,UserDTO.class);
 
 //        List<ResponseOrder> orders = new ArrayList<>();
+
 //        String orderUrl = String.format(environment.getProperty("order_service.url"),userId) ;
 //
 //        ResponseEntity<List<ResponseOrder>> orderListResponse =
@@ -104,6 +105,7 @@ public class UserServiceImpl implements UserService{
 //        }
 
         orders = orderServiceclient.getOrders(userId);
+
 
         userDTO.setOrders(orders);
         return userDTO;
