@@ -1,6 +1,6 @@
 - 다운 사이트 : https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.13-3.1.0.tgz  
 - 실행순서  
-  - zookeeper 실행 : ``$KAFKA_HOME/bin/kafka-server-start.sh  $KAFKA_HOME/config/server.properties``
+  - zookeeper 실행 : ``$KAFKA_HOME/bin/zookeeper-server-start.sh  $KAFKA_HOME/config/zookeeper.properties``
   - Kafka 실행 : ``$KAFKA_HOME/bin/kafka-server-start.sh  $KAFKA_HOME/config/server.properties``
   - 토픽 생성 : ``$KAFKA_HOME/bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092 
 --partitions 1``  

@@ -14,10 +14,10 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://ec2-3-35-27-135.ap-northeast-2.compute.amazonaws.com:3306/MTBX
-    username: mtbx
-    password: Qwer1234!@#
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: test1357
     hikari:
       maximum-pool-size: 10
       minimum-idle: 2
