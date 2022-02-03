@@ -2,6 +2,7 @@ package com.example.orderservice.controller;
 
 import com.example.orderservice.dto.OrderDTO;
 import com.example.orderservice.jpa.OrderEntity;
+import com.example.orderservice.messagequeue.KafkaProducer;
 import com.example.orderservice.service.OrderService;
 import com.example.orderservice.vo.RequestOrder;
 import com.example.orderservice.vo.ResponseOrder;
@@ -23,11 +24,13 @@ public class OrderController {
 
     Environment environment;
     OrderService orderService;
+    KafkaProducer kafkaProducer;
 
     @Autowired
-    public OrderController(Environment environment, OrderService orderService) {
+    public OrderController(Environment environment, OrderService orderService,KafkaProducer kafkaProducer) {
         this.environment = environment;
         this.orderService = orderService;
+        this.kafkaProducer = kafkaProducer;
     }
 
     @GetMapping("/heath_check")
@@ -46,6 +49,8 @@ public class OrderController {
         OrderDTO createdOrderDTO = orderService.createOrder(orderDTO);
 
         ResponseOrder responseOrder = modelMapper.map(createdOrderDTO,ResponseOrder.class);
+
+        kafkaProducer.send("example-catalig-topic",orderDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
