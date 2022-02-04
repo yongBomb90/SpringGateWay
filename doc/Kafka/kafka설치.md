@@ -14,6 +14,8 @@
   - 토픽프로듀서입력 - [POST맨 Kafka list](https://galactic-eclipse-898382.postman.co/workspace/MSA~50d313ee-e94b-4f84-8751-c6c009998c24/request/19066531-8f3462f5-314f-4e3b-8c81-11efd2d1a385)
 - sink connect 의 활용도
   - ETL
+- kafka 응용도
+  - 이벤트소싱 CQRS 
 
 > 컨넥터의 shell 문제 변경
 > connect-distributed.bat 에서 로그 파일 경로 변경 ``set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%BASE_DIR%/etc/kafka/connect-log4j.properties`` 로 변경
