@@ -12,6 +12,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
@@ -43,13 +45,16 @@ public class UserServiceImpl implements UserService{
 
     OrderServiceclient orderServiceclient;
 
+    CircuitBreakerFactory circuitBreakerFactory;
+
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, RestTemplate restTemplate, Environment environment,  OrderServiceclient orderServiceclient) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, RestTemplate restTemplate, Environment environment,  OrderServiceclient orderServiceclient ,  CircuitBreakerFactory circuitBreakerFactory) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.restTemplate = restTemplate;
         this.environment = environment;
         this.orderServiceclient = orderServiceclient;
+        this.circuitBreakerFactory = circuitBreakerFactory;
     }
 
     @Override
@@ -104,8 +109,11 @@ public class UserServiceImpl implements UserService{
 //            log.error(e.toString());
 //        }
 
-        orders = orderServiceclient.getOrders(userId);
-
+//        orders = orderServiceclient.getOrders(userId);
+        log.info("Before Call Orders MicroService");
+        CircuitBreaker circuitBreaker =  circuitBreakerFactory.create("circuitbreaker");
+        orders = circuitBreaker.run( () -> orderServiceclient.getOrders(userId) , throwable -> new ArrayList<>());
+        log.info("After Call Orders MicroService");
 
         userDTO.setOrders(orders);
         return userDTO;
