@@ -5,6 +5,7 @@ import com.example.userservice.jpa.UserEntity;
 import com.example.userservice.service.UserService;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
+import io.micrometer.core.annotation.Timed;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/heath_check")
+    @Timed(value = "user.status", longTask = true)
     public String status(HttpServletRequest request){
         return "User Service : " + environment.getProperty("local.server.port")
                 + ", environment.getProperty(\"server.port\") = "+ environment.getProperty("server.port")
@@ -46,6 +48,7 @@ public class UserController {
     }
 
     @GetMapping("/welcome")
+    @Timed(value = "user.welcome", longTask = true)
     public String welcome(){
         return  greeting.getMessage();
     }
