@@ -1,6 +1,7 @@
 encrypt:
   #key: abcdefghijklmnopqrstuvwxyz0123456789
   key-store:
-    location: file:///D:\git\springGateWay\keys\apiEncryptionKey.jks
+#    location: file://${user.home}/develop/git/Inflearn_msa/config-service/apiEncryptionKey.jks
+    location: file:apiEncryptionKey.jks
     password: test1234
     alias: apiEncryptionKey

@@ -1,10 +1,12 @@
 server:
   port: 8761
-
 spring:
   application:
     name: discoveryserver
-
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      name: ecommerce
 eureka:
   client:
     register-with-eureka: false
