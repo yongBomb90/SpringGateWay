@@ -7,3 +7,10 @@
    1. docker run -d -p 8888:8888 --network ecommerce-network -e "spring.rabbitmq.host=rabbitmq" -e "spring.profiles.active=default" --name config-service yongbomb/config-service:1.0
 4. discovey 서버 시작
    1. docker run -d -p 8761:8761 --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" --name discovery-service yongbomb/discovery-service:1.0
+5. API Gateway 서버 시작
+   1. docker run -d -p 8000:8000 --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" --name apigateway-service yongbomb/apigateway-service:1.0
+6. mariaDB 서버 시작
+   1. docker run -d -p 3306:3306  --network ecommerce-network --name mariadb yongbomb/my-mariadb:1.0
+7. kafka 서버 시작
+   1. https://github.com/wurstmeister/kafka-docker - 도커 컴포즈
+   2. 
