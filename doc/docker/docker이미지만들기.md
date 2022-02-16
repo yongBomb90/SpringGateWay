@@ -13,6 +13,7 @@
    1. docker run -d -p 3306:3306  --network ecommerce-network --name mariadb yongbomb/my-mariadb:1.0
 7. kafka 서버 시작
    1. https://github.com/wurstmeister/kafka-docker - 도커 컴포즈
+   2. 해당 컴포즈로 build
 8. zipkin
    1. docker run -d -p 9411:9411 --network ecommerce-network --name zipkin openzipkin/zinkin
 9. prometheous
