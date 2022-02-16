@@ -13,4 +13,11 @@
    1. docker run -d -p 3306:3306  --network ecommerce-network --name mariadb yongbomb/my-mariadb:1.0
 7. kafka 서버 시작
    1. https://github.com/wurstmeister/kafka-docker - 도커 컴포즈
-   2. 
+8. zipkin
+   1. docker run -d -p 9411:9411 --network ecommerce-network --name zipkin openzipkin/zinkin
+9. prometheous
+   1. docker run -d -p 9090:9090 --network ecommerce-network --name prometheus -v /Users/bag-yongbeom/develop/git/Inflearn_msa/doc/docker/prometeous/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+10. grafana
+    1. docker run -d -p 3000:3000 --network ecommerce-network --name grafana grafana/grafana 
+
+
