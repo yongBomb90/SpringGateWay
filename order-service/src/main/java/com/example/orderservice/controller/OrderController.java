@@ -53,14 +53,15 @@ public class OrderController {
 
         OrderDTO orderDTO = modelMapper.map(orderDetails, OrderDTO.class);
         orderDTO.setUserId(userId);
+
         OrderDTO createdOrderDTO = orderService.createOrder(orderDTO);
         ResponseOrder responseOrder = modelMapper.map(createdOrderDTO,ResponseOrder.class);
 
-        orderDTO.setOrderId(UUID.randomUUID().toString());
-        orderDTO.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
+//        orderDTO.setOrderId(UUID.randomUUID().toString());
+//        orderDTO.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
         // 카탈로그 현행화 카프카
-//        kafkaProducer.send("example-catalig-topic",orderDTO);
+        kafkaProducer.send("example-catalig-topic",orderDTO);
 //        orderProducer.send("orders",orderDTO);
 //        ResponseOrder responseOrder = modelMapper.map(orderDTO,ResponseOrder.class);
 
@@ -81,12 +82,12 @@ public class OrderController {
             result.add(new ModelMapper().map(v,ResponseOrder.class));
         });
 
-        try {
-            Thread.sleep(1000);
-            throw new Exception("장애 발생");
-        } catch (InterruptedException e) {
-            log.warn(e.getMessage());
-        }
+//        try {
+//            Thread.sleep(1000);
+//            throw new Exception("장애 발생");
+//        } catch (InterruptedException e) {
+//            log.warn(e.getMessage());
+//        }
 
         log.info("After Call Orders data");
 

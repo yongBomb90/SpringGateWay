@@ -18,6 +18,10 @@
 9. prometheous
    1. docker run -d -p 9090:9090 --network ecommerce-network --name prometheus -v /Users/bag-yongbeom/develop/git/Inflearn_msa/doc/docker/prometeous/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 10. grafana
-    1. docker run -d -p 3000:3000 --network ecommerce-network --name grafana grafana/grafana 
-
-
+    1. docker run -d -p 3000:3000 --network ecommerce-network --name grafana grafana/grafana
+11. user-service
+    1. docker run -d --network ecommerce-network --name user-service -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" \-e "spring.zipkin.base-url=http://zipkin:9411" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "logging.file=/api-logs/users-ws.log" yongbomb/user-service
+12. order-service
+    1. docker run -d --network ecommerce-network --name order-service -e "spring.zipkin.base-url=http://zipkin:9411" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "spring.datasource.url=jdbc:mariadb://mariadb:3306/mydb" -e "logging.file=/api-logs/orders-ws.log" yongbomb/order-service
+13. catalog-service
+    1. docker run -d --network ecommerce-network --name catalog-service -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "logging.file=/api-logs/catalogs-ws.log" yongbomb/catalog-service
