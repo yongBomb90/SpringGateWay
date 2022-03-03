@@ -1,4 +1,4 @@
-package com.example.microservice;
+package com.example.microservice.helloworld;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
