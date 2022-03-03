@@ -47,6 +47,21 @@ public class UserController {
 
     }
 
+    @GetMapping("/config-level")
+    @Timed(value = "user.config-level", longTask = true)
+    public String configlevel(HttpServletRequest request){
+        return
+                " config-step1 = "+ environment.getProperty("test.config.step1")
+                +" <br> config-step2 = "+ environment.getProperty("test.config.step2")
+                +" <br> config-step3 = "+ environment.getProperty("test.config.step3")
+                +" <br> config-step4 = "+ environment.getProperty("test.config.step4")
+                +" <br> config-step5 = "+ environment.getProperty("test.config.step5")
+                +" <br> config-step6 = "+ environment.getProperty("test.config.step6")
+                +" <br> config-step7 = "+ environment.getProperty("test.config.step7")
+        ;
+
+    }
+
     @GetMapping("/welcome")
     @Timed(value = "user.welcome", longTask = true)
     public String welcome(){

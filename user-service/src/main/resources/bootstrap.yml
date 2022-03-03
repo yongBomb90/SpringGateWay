@@ -5,3 +5,12 @@ spring:
       name: user-service
   profiles:
     active: default
+test:
+  config:
+    step7: "local bootstrap.yml"
+    step6: "local bootstrap.yml"
+    step5: "local bootstrap.yml"
+    step4: "local bootstrap.yml"
+    step3: "local bootstrap.yml"
+    step2: "local bootstrap.yml"
+    step1: "local bootstrap.yml"

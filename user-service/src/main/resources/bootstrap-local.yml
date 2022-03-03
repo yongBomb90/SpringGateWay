@@ -1,0 +1,8 @@
+test:
+  config:
+    step7: "local bootstrap-local.yml"
+    step6: "local bootstrap-local.yml"
+    step5: "local bootstrap-local.yml"
+    step4: "local bootstrap-local.yml"
+    step3: "local bootstrap-local.yml"
+    step2: "local bootstrap-local.yml"

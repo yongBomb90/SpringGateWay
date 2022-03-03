@@ -1,0 +1,7 @@
+test:
+  config:
+    step7: "local application-local.yml"
+    step6: "local application-local.yml"
+    step5: "local application-local.yml"
+    step4: "local application-local.yml"
+    step1: "local application-local.yml"

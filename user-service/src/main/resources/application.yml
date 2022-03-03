@@ -45,3 +45,10 @@ management:
     web:
       exposure:
         include: refresh, health, beans, busrefresh, info, metrics, prometheus
+test:
+  config:
+    step7: "local application.yml"
+    step6: "local application.yml"
+    step5: "local application.yml"
+    step4: "local application.yml"
+    step3: "local application.yml"
